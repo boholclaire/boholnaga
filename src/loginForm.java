@@ -66,7 +66,6 @@ public class loginForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(238, 248, 232));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,27 +123,38 @@ public class loginForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Don't have an account? REGISTER");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, 440, -1));
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 860, 640);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
-     String username = usernameTextField.getText(); 
-
-if (username.isEmpty()) {
-    JOptionPane.showMessageDialog(null, "Username cannot be empty", "Input Error", JOptionPane.ERROR_MESSAGE);
-} else {
-   
-    System.out.println("Username entered: " + username);
-}
+    
     }//GEN-LAST:event_usernameActionPerformed
 
     private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
      buttonBorderAnimation(login);
+     
     }//GEN-LAST:event_loginMouseEntered
 
     private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
@@ -152,15 +162,19 @@ if (username.isEmpty()) {
     }//GEN-LAST:event_loginMouseExited
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-     String password = new String(passwordField.getPassword()); // Get the password from the password field
-
-if (password.length() < 8) {
-    JOptionPane.showMessageDialog(null, "Password must have at least 8 characters", "Input Error", JOptionPane.ERROR_MESSAGE);
-} else {
-    // Assuming 'loginButton' is your JButton, move focus to the login button
-    loginButton.requestFocus();  
-}
+   
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+  registerform rft = new registerform();
+     rft.setVisible(true);
+     this.dispose();
+           
+    }//GEN-LAST:event_jLabel2MouseEntered
 
     /**
      * @param args the command line arguments
@@ -227,7 +241,7 @@ if (password.length() < 8) {
             login.setBackground(Color.WHITE); 
             login.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1)); 
     }
-       }
+       });
                }
 }
 

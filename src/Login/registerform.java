@@ -39,17 +39,7 @@ public class registerform extends javax.swing.JFrame {
 
     Border empty =BorderFactory.createEmptyBorder();
     
-    void ButtonBorderAnimation(JPanel panel){
-     panel.setBackground(hover);  
-    panel.setBorder(BorderFactory.createCompoundBorder(
-        BorderFactory.createLineBorder(Color.BLACK),
-        BorderFactory.createStrokeBorder(new BasicStroke(2f))  
-    ));
-        }
-    void ButtonDefaultColor(JPanel panel){
-    panel.setBackground(defButton);
-    panel.setBorder( empty);
-    }
+  
     
         
     @SuppressWarnings("unchecke /**d")
@@ -131,7 +121,7 @@ public class registerform extends javax.swing.JFrame {
         ty.setBackground(new java.awt.Color(204, 204, 204));
         ty.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         ty.setForeground(new java.awt.Color(102, 102, 102));
-        ty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User Type", "Manager", "Worker", "Engineer", "Admin" }));
+        ty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User Type", "Manager", "Worker", " " }));
         jPanel1.add(ty, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 300, 40));
 
         em.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -235,7 +225,7 @@ public class registerform extends javax.swing.JFrame {
         dbConnect dbc = new dbConnect();
     
      if (fname.getText().isEmpty() || lname.getText().isEmpty() || ty.getSelectedItem() == null || em.getText().isEmpty() || un.getText().isEmpty() || pass.getText().isEmpty() || pn.getText().isEmpty()) {
-              JOptionPane.showMessageDialog(null, "First Name, Last Name, Type, Email, Username, Password, and Phone Number are required!");
+              JOptionPane.showMessageDialog(null, "All fields are required!");
               } else if (pass.getText().length() < 8) {
              JOptionPane.showMessageDialog(null, "Password must be at least 8 characters.");
              } else if (!isValidEmail(em.getText())) {

@@ -32,19 +32,10 @@ public class adminDashboard extends javax.swing.JFrame {
   Color hover = new Color(204,204,204);
     Color defButton= new Color(102,102,102);
 
-private void buttonBorderAnimation(JPanel login) {
-    login.addMouseListener(new MouseAdapter() {
-        public void mouseEntered(MouseEvent e) {
-            login.setBackground(Color.LIGHT_GRAY);
-            login.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2));
-        }
 
-        public void mouseExited(MouseEvent e) {
-            login.setBackground(Color.GRAY); // 
-            login.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        }
-    });
-}
+        
+   
+
 
     
     /**
@@ -85,6 +76,17 @@ private void buttonBorderAnimation(JPanel login) {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logout.setBackground(new java.awt.Color(204, 204, 204));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutMouseExited(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -133,9 +135,9 @@ private void buttonBorderAnimation(JPanel login) {
                 usersMouseEntered(evt);
             }
         });
-        user.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 40));
+        user.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 40));
 
-        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 260, 40));
+        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 190, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 650));
 
@@ -178,6 +180,22 @@ private void buttonBorderAnimation(JPanel login) {
         au.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_userMouseClicked
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+      loginForm rft = new loginForm();
+     rft.setVisible(true);
+     this.dispose();    
+
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+     logout.setBackground(hover);
+
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+    logout.setBackground(defButton);
+    }//GEN-LAST:event_logoutMouseExited
 
     
     

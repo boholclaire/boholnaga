@@ -42,17 +42,7 @@ public class loginForm extends javax.swing.JFrame {
 
     Border empty =BorderFactory.createEmptyBorder();
     
-    void ButtonBorderAnimation(JPanel panel){
-     panel.setBackground(hover);  
-    panel.setBorder(BorderFactory.createCompoundBorder(
-        BorderFactory.createLineBorder(Color.BLACK),
-        BorderFactory.createStrokeBorder(new BasicStroke(2f))  
-    ));
-        }
-    void ButtonDefaultColor(JPanel panel){
-    panel.setBackground(defButton);
-    panel.setBorder( empty);
-    }
+    
     
   static String status;
     static String type;
@@ -93,14 +83,16 @@ public class loginForm extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        username = new javax.swing.JTextField();
         login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        passwordPW = new javax.swing.JTextField();
+        pass = new javax.swing.JPasswordField();
+        user = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/96360259-real-estate-property-and-construction-logo-design-for-business-corporate-sign.png"))); // NOI18N
 
@@ -108,17 +100,6 @@ public class loginForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        username.setBackground(new java.awt.Color(204, 204, 204));
-        username.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        username.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 1, 14), new java.awt.Color(102, 102, 102))); // NOI18N
-        username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 380, 60));
 
         login.setBackground(new java.awt.Color(102, 102, 102));
         login.setForeground(new java.awt.Color(102, 102, 102));
@@ -142,7 +123,7 @@ public class loginForm extends javax.swing.JFrame {
         jLabel1.setText("LOGIN");
         login.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 110, -1));
 
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 110, 40));
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 110, 40));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
@@ -156,7 +137,7 @@ public class loginForm extends javax.swing.JFrame {
                 jLabel2MouseEntered(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 440, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 370, 20));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -173,16 +154,26 @@ public class loginForm extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 650));
 
-        passwordPW.setBackground(new java.awt.Color(204, 204, 204));
-        passwordPW.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        passwordPW.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        passwordPW.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "PASSWORD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 1, 14), new java.awt.Color(102, 102, 102))); // NOI18N
-        passwordPW.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordPWActionPerformed(evt);
-            }
-        });
-        jPanel1.add(passwordPW, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 380, 60));
+        pass.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 300, 40));
+
+        user.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        user.setToolTipText("");
+        jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 300, 40));
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("PASSWORD:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("USERNAME:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,14 +193,13 @@ public class loginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
-        registerform rft = new registerform();
-        rft.setVisible(true);
-        this.dispose();
-
+   
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-
+       registerform rft = new registerform();
+        rft.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
@@ -221,35 +211,26 @@ public class loginForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_loginMouseEntered
 
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
- 
-
-    }//GEN-LAST:event_usernameActionPerformed
-
-    private void passwordPWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordPWActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordPWActionPerformed
-
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-         String u_username = username.getText().trim();
-        String u_password= new String(passwordPW.getText()).trim();
+         String u_username = user.getText().trim();
+        String u_password= new String(pass.getText()).trim();
     
      if (logAcc(u_username, u_password)) {
         if (!status.equals("Active")) {
             JOptionPane.showMessageDialog(null, "Inactive Account, Contact the Admin");
         } else {
-            JOptionPane.showMessageDialog(null, "Login Successfully");
-
             if (type.equals("Admin")) {
+                JOptionPane.showMessageDialog(null, "Login");
                 adminDashboard ad = new adminDashboard();
                 ad.setVisible(true);
                 this.dispose();
             } else if (type.equals("Worker")) {
+                JOptionPane.showMessageDialog(null, "Login");
                 workersDashboard wd = new workersDashboard();
                 wd.setVisible(true);
                 this.dispose();
             }else {
-                JOptionPane.showMessageDialog(null, "Unknown Account Type, Contact the Admin");
+                JOptionPane.showMessageDialog(null, "No Account");
             }
         }
     } else {
@@ -296,13 +277,15 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel login;
-    private javax.swing.JTextField passwordPW;
-    private javax.swing.JTextField username;
+    private javax.swing.JPasswordField pass;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 
     private void buttonDefaultColor(JPanel login) {

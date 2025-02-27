@@ -2,7 +2,6 @@ package Login;
 
 
 import Manager.ManagerDashboard;
-import admin.adminDashboard;
 import config.dbConnect;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -210,12 +209,7 @@ public class loginForm extends javax.swing.JFrame {
         if (!status.equals("Active")) {
             JOptionPane.showMessageDialog(null, "Inactive Account, Contact the Admin");
         } else {
-            if (type.equals("Admin")) {
-                JOptionPane.showMessageDialog(null, "Login");
-                adminDashboard ad = new adminDashboard();
-                ad.setVisible(true);
-                this.dispose();
-            } else if (type.equals("Nurse")) {
+            if (type.equals("Nurse")) {
                 JOptionPane.showMessageDialog(null, "Login");
                 NurseDashboard nd = new NurseDashboard();
                 nd.setVisible(true);

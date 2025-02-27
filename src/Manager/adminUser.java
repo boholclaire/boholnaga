@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package admin;
+package Manager;
 
+import Manager.ManagerDashboard;
 import config.dbConnect;
 import java.awt.Color;
 import java.sql.ResultSet;
@@ -205,7 +206,7 @@ public class adminUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-    adminDashboard dp= new adminDashboard();
+    ManagerDashboard dp= new ManagerDashboard();
      dp.setVisible(true);
      this.dispose(); 
     }//GEN-LAST:event_logoutMouseClicked

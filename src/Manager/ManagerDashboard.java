@@ -5,6 +5,17 @@
  */
 package Manager;
 
+import Login.loginForm;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+
 /**
  *
  * @author clair
@@ -12,12 +23,22 @@ package Manager;
 public class ManagerDashboard extends javax.swing.JFrame {
 
     /**
-     * Creates new form ManagerDashboard
+     * Creates new form adminDashboard
      */
     public ManagerDashboard() {
         initComponents();
     }
 
+  
+    Color hover = new Color(102,255,255);
+    Color defButton= new Color(204,204,204);
+
+
+        
+   
+
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,13 +48,25 @@ public class ManagerDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel9 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        logout = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         user = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        usersLable = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,30 +76,27 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel10.setBackground(new java.awt.Color(204, 204, 204));
+        logout.setBackground(new java.awt.Color(204, 204, 204));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutMouseExited(evt);
+            }
+        });
+        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("LOGOUT");
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("LOGOUT");
+        logout.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 16));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 7, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 100, 40));
+        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 100, 40));
 
         user.setBackground(new java.awt.Color(204, 204, 204));
         user.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,21 +112,32 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
         user.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("RECORDS");
-        user.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 13, 124, 16));
+        usersLable.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        usersLable.setForeground(new java.awt.Color(102, 102, 102));
+        usersLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usersLable.setText("USERS");
+        usersLable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersLableMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                usersLableMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                usersLableMouseExited(evt);
+            }
+        });
+        user.add(usersLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 40));
 
-        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 290, 40));
+        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 190, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 650));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 650));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("MANAGER DASHBOARD");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 300, -1));
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("ADMIN DASHBOARD");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 260, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,18 +155,52 @@ public class ManagerDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseClicked
-
-    }//GEN-LAST:event_userMouseClicked
-
-    private void userMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseEntered
-
-    }//GEN-LAST:event_userMouseEntered
-
     private void userMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseExited
-
+        user.setBackground(defButton);
     }//GEN-LAST:event_userMouseExited
 
+    private void userMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseEntered
+        user.setBackground(hover);
+    }//GEN-LAST:event_userMouseEntered
+
+    private void userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseClicked
+        adminUser au = new adminUser();
+        au.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_userMouseClicked
+
+    private void usersLableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLableMouseExited
+        user.setBackground(defButton);
+    }//GEN-LAST:event_usersLableMouseExited
+
+    private void usersLableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLableMouseEntered
+        user.setBackground(hover);
+    }//GEN-LAST:event_usersLableMouseEntered
+
+    private void usersLableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLableMouseClicked
+        adminUser au = new adminUser();
+        au.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_usersLableMouseClicked
+
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+        logout.setBackground(defButton);
+    }//GEN-LAST:event_logoutMouseExited
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        logout.setBackground(hover);
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        loginForm rft = new loginForm();
+        rft.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logoutMouseClicked
+
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -152,6 +227,13 @@ public class ManagerDashboard extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -162,12 +244,13 @@ public class ManagerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel logout;
     private javax.swing.JPanel user;
+    private javax.swing.JLabel usersLable;
     // End of variables declaration//GEN-END:variables
 }

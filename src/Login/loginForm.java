@@ -1,6 +1,7 @@
 package Login;
 
 
+import Manager.ManagerDashboard;
 import admin.adminDashboard;
 import config.dbConnect;
 import java.awt.BasicStroke;
@@ -13,7 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-import workers.workersDashboard;
+import workers.NurseDashboard;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -87,8 +88,6 @@ public class loginForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         pass = new javax.swing.JPasswordField();
         user = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -141,17 +140,6 @@ public class loginForm extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/black-white-modern-concept-business-logo-designs-professional-branding_947814-193832 (1).png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 60, 510, 500));
-
-        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("CONSTRUCTION PROJECT SYSTEM");
-        jLabel6.setToolTipText("");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 430, 30));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 650));
 
         pass.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -212,10 +200,13 @@ public class loginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMouseEntered
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-         String u_username = user.getText().trim();
+        String u_username = user.getText().trim();
         String u_password= new String(pass.getText()).trim();
     
-     if (logAcc(u_username, u_password)) {
+     if(u_username.isEmpty() || u_password.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please Fill all Boxes");
+        }else if (logAcc(u_username, u_password)) {
         if (!status.equals("Active")) {
             JOptionPane.showMessageDialog(null, "Inactive Account, Contact the Admin");
         } else {
@@ -224,10 +215,15 @@ public class loginForm extends javax.swing.JFrame {
                 adminDashboard ad = new adminDashboard();
                 ad.setVisible(true);
                 this.dispose();
-            } else if (type.equals("Worker")) {
+            } else if (type.equals("Nurse")) {
                 JOptionPane.showMessageDialog(null, "Login");
-                workersDashboard wd = new workersDashboard();
-                wd.setVisible(true);
+                NurseDashboard nd = new NurseDashboard();
+                nd.setVisible(true);
+                this.dispose();
+            }else if (type.equals("Manager")) {
+                JOptionPane.showMessageDialog(null, "Login");
+                ManagerDashboard md = new ManagerDashboard();
+                md.setVisible(true);
                 this.dispose();
             }else {
                 JOptionPane.showMessageDialog(null, "No Account");
@@ -276,10 +272,8 @@ public class loginForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

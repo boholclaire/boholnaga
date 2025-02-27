@@ -48,8 +48,6 @@ public class registerform extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -76,17 +74,6 @@ public class registerform extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/black-white-modern-concept-business-logo-designs-professional-branding_947814-193832 (1).png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 60, 520, 480));
-
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("CONSTRUCTION PROJECT SYSTEM");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 430, 30));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 630));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 0, -1));
 
@@ -121,7 +108,7 @@ public class registerform extends javax.swing.JFrame {
         ty.setBackground(new java.awt.Color(204, 204, 204));
         ty.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         ty.setForeground(new java.awt.Color(102, 102, 102));
-        ty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User Type", "Manager", "Worker", " " }));
+        ty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "Nurse", " " }));
         jPanel1.add(ty, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 300, 40));
 
         em.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -237,8 +224,11 @@ public class registerform extends javax.swing.JFrame {
         
         } else if (dbc.insertData("INSERT INTO tbl_user(u_fname, u_lname, u_type, u_email, u_username, u_password, u_phoneNumber, status) "
         + "VALUES('" + fname.getText() + "' , '" + lname.getText() + "' , '" + ty.getSelectedItem() + "' , '" + em.getText() + "' , "
-        + "'" + un.getText() + "' , '" + pass.getText() + "' , '" + pn.getText() + "' ,'Pending')") == 0) {
+        + "'" + un.getText() + "' , '" + pass.getText() + "' , '" + pn.getText() + "' ,'Pending')")) {
                JOptionPane.showMessageDialog(null, "Registered Successfully!");
+                loginForm lf = new loginForm();
+                lf.setVisible(true);
+                this.dispose();
        }
         
 
@@ -288,8 +278,6 @@ public class registerform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

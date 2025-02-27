@@ -29,8 +29,9 @@ public class adminDashboard extends javax.swing.JFrame {
         initComponents();
     }
 
-  Color hover = new Color(204,204,204);
-    Color defButton= new Color(102,102,102);
+  
+    Color hover = new Color(102,255,255);
+    Color defButton= new Color(204,204,204);
 
 
         
@@ -53,7 +54,7 @@ public class adminDashboard extends javax.swing.JFrame {
         logout = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         user = new javax.swing.JPanel();
-        users = new javax.swing.JLabel();
+        usersLable = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -87,28 +88,13 @@ public class adminDashboard extends javax.swing.JFrame {
                 logoutMouseExited(evt);
             }
         });
+        logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("LOGOUT");
-
-        javax.swing.GroupLayout logoutLayout = new javax.swing.GroupLayout(logout);
-        logout.setLayout(logoutLayout);
-        logoutLayout.setHorizontalGroup(
-            logoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoutLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        logoutLayout.setVerticalGroup(
-            logoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoutLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        logout.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 16));
 
         jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 100, 40));
 
@@ -126,16 +112,22 @@ public class adminDashboard extends javax.swing.JFrame {
         });
         user.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        users.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        users.setForeground(new java.awt.Color(102, 102, 102));
-        users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        users.setText("USERS");
-        users.addMouseListener(new java.awt.event.MouseAdapter() {
+        usersLable.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        usersLable.setForeground(new java.awt.Color(102, 102, 102));
+        usersLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usersLable.setText("USERS");
+        usersLable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersLableMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                usersMouseEntered(evt);
+                usersLableMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                usersLableMouseExited(evt);
             }
         });
-        user.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 40));
+        user.add(usersLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 40));
 
         jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 190, 40));
 
@@ -163,23 +155,10 @@ public class adminDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usersMouseEntered
+    private void usersLableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLableMouseEntered
+     user.setBackground(hover);
 
-    private void userMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseEntered
-     user.setBackground(hover);       
-    }//GEN-LAST:event_userMouseEntered
-
-    private void userMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseExited
-      user.setBackground(defButton);
-    }//GEN-LAST:event_userMouseExited
-
-    private void userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseClicked
-       adminUser au = new  adminUser();
-        au.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_userMouseClicked
+    }//GEN-LAST:event_usersLableMouseEntered
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
       loginForm rft = new loginForm();
@@ -196,6 +175,30 @@ public class adminDashboard extends javax.swing.JFrame {
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
     logout.setBackground(defButton);
     }//GEN-LAST:event_logoutMouseExited
+
+    private void userMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseExited
+        user.setBackground(defButton);
+    }//GEN-LAST:event_userMouseExited
+
+    private void userMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseEntered
+       user.setBackground(hover);
+    }//GEN-LAST:event_userMouseEntered
+
+    private void userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseClicked
+        adminUser au = new adminUser();
+        au.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_userMouseClicked
+
+    private void usersLableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLableMouseClicked
+        adminUser au = new adminUser();
+        au.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_usersLableMouseClicked
+
+    private void usersLableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLableMouseExited
+        user.setBackground(defButton);
+    }//GEN-LAST:event_usersLableMouseExited
 
     
     
@@ -247,6 +250,6 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel logout;
     private javax.swing.JPanel user;
-    private javax.swing.JLabel users;
+    private javax.swing.JLabel usersLable;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,8 @@
  */
 package workers;
 
+import config.Session;
+
 /**
  *
  * @author clair
@@ -33,17 +35,25 @@ public class NurseDashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         user = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        fn = new javax.swing.JLabel();
+        ln = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(248, 173, 173));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel10.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel10.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -68,7 +78,7 @@ public class NurseDashboard extends javax.swing.JFrame {
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 100, 40));
 
-        user.setBackground(new java.awt.Color(204, 204, 204));
+        user.setBackground(new java.awt.Color(120, 80, 140));
         user.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userMouseClicked(evt);
@@ -89,6 +99,21 @@ public class NurseDashboard extends javax.swing.JFrame {
         user.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 13, 124, 16));
 
         jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 290, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-test-account-100.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 100));
+
+        fn.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        fn.setForeground(new java.awt.Color(102, 102, 102));
+        fn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fn.setText("Nurse");
+        jPanel2.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+
+        ln.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        ln.setForeground(new java.awt.Color(102, 102, 102));
+        ln.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ln.setText("Nurse");
+        jPanel2.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 650));
 
@@ -112,6 +137,7 @@ public class NurseDashboard extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseClicked
@@ -125,6 +151,11 @@ public class NurseDashboard extends javax.swing.JFrame {
     private void userMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseExited
       
     }//GEN-LAST:event_userMouseExited
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+        
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -163,12 +194,15 @@ public class NurseDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel ln;
     private javax.swing.JPanel user;
     // End of variables declaration//GEN-END:variables
 }

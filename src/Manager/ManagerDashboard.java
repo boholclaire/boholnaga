@@ -6,6 +6,7 @@
 package Manager;
 
 import Login.loginForm;
+import config.Session;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -30,8 +31,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
     }
 
   
-    Color hover = new Color(102,255,255);
-    Color defButton= new Color(204,204,204);
+    Color hover = new Color(252,250,252);
+    Color defButton= new Color(230,189,230);
 
 
         
@@ -55,6 +56,9 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         user = new javax.swing.JPanel();
         usersLable = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        ACC = new javax.swing.JLabel();
+        lname = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -69,14 +73,19 @@ public class ManagerDashboard extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(235, 230, 240));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(230, 189, 230));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logout.setBackground(new java.awt.Color(204, 204, 204));
+        logout.setBackground(new java.awt.Color(230, 189, 230));
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoutMouseClicked(evt);
@@ -96,9 +105,9 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jLabel5.setText("LOGOUT");
         logout.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 16));
 
-        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 100, 40));
+        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 100, 40));
 
-        user.setBackground(new java.awt.Color(204, 204, 204));
+        user.setBackground(new java.awt.Color(230, 189, 230));
         user.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userMouseClicked(evt);
@@ -112,6 +121,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
         user.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        usersLable.setBackground(new java.awt.Color(235, 230, 240));
         usersLable.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         usersLable.setForeground(new java.awt.Color(102, 102, 102));
         usersLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,13 +137,29 @@ public class ManagerDashboard extends javax.swing.JFrame {
                 usersLableMouseExited(evt);
             }
         });
-        user.add(usersLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 40));
+        user.add(usersLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 30));
 
-        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 190, 40));
+        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 650));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-test-account-100.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 260, 90));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        ACC.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        ACC.setForeground(new java.awt.Color(102, 102, 102));
+        ACC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ACC.setText("ADMIN");
+        jPanel2.add(ACC, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 60, 30));
+
+        lname.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lname.setForeground(new java.awt.Color(102, 102, 102));
+        lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lname.setText("ADMIN");
+        jPanel2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 60, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 530));
+
+        jLabel2.setFont(new java.awt.Font("Nirmala Text Semilight", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ADMIN DASHBOARD");
@@ -149,10 +175,11 @@ public class ManagerDashboard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void userMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMouseExited
@@ -197,8 +224,22 @@ public class ManagerDashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logoutMouseClicked
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    Session sess = Session.getInstance();
+        if(sess.getUid() == 0){
+           JOptionPane.showMessageDialog(null, "No account, Login First!"); 
+           loginForm lf = new loginForm();
+           lf.setVisible(true);
+           this.dispose();            
+ 
+  }else{
+  
+  ACC.setText(""+sess.getFname());
+  lname.setText(""+sess.getLname());
+    }//GEN-LAST:event_formWindowActivated
+
     
-    
+    }
     
     
     /**
@@ -244,11 +285,14 @@ public class ManagerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ACC;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lname;
     private javax.swing.JPanel logout;
     private javax.swing.JPanel user;
     private javax.swing.JLabel usersLable;
